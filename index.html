@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conteúdos Programados LED'S Íntima</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>:root{
+  --bg:#0F0A18; --bg2:#150E22; --surface:#1B1329; --surface2:#231833;
+  --ink:#F4EFFA; --muted:#B3A8C6; --line:#33264A;
+  --violet:#7A2BF0; --violet-deep:#4B0FA8; --violet-hi:#B48CFF; --lilac:#D9C8FF; --violet-soft:rgba(122,43,240,.16);
+  --ok:#7FDB97; --ok-soft:rgba(127,219,151,.12);
+  --warn:#FFB27A; --warn-soft:rgba(255,178,122,.12);
+  --font:"Poppins","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);font-weight:300;background:radial-gradient(900px 500px at 50% 0%,rgba(122,43,240,.22),transparent 60%),var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--violet-hi)}
+b,strong{font-weight:600}
+button{font-family:var(--font)}
+:focus-visible{outline:2px solid var(--violet-hi);outline-offset:2px}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px;position:relative}
+
+/* Topo roxo vivo */
+header.top{position:relative;text-align:center;padding:48px 20px 70px;overflow:hidden;color:#fff;
+  background:radial-gradient(520px 300px at 50% -40%,rgba(255,255,255,.28),transparent 65%),linear-gradient(160deg,var(--violet) 0%,var(--violet-deep) 100%)}
+header.top::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:36px;background:var(--bg);border-radius:50% 50% 0 0/100% 100% 0 0}
+.logo{display:block;width:170px;height:auto;margin:0 auto 18px;color:#fff;position:relative}
+.eyebrow{position:relative;font-weight:300;font-size:24px;letter-spacing:.14em;text-transform:uppercase}
+.eyebrow b{font-weight:700}
+.datechip{position:relative;display:inline-block;margin-top:14px;font-size:13px;font-weight:400;border:1px solid rgba(255,255,255,.5);border-radius:99px;padding:6px 16px;background:rgba(255,255,255,.12)}
+.lead{position:relative;margin:12px auto 0;max-width:36ch;font-size:15px;color:rgba(255,255,255,.9)}
+
+/* Agenda */
+.agenda{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;list-style:none;margin-top:4px}
+.agenda a{display:flex;flex-direction:column;gap:1px;height:100%;padding:11px 6px;text-align:center;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:14px;background:var(--surface);transition:border-color .2s,transform .2s}
+.agenda a:hover{border-color:var(--violet);transform:translateY(-2px)}
+.agenda .d{font-weight:700;font-size:19px;line-height:1.2;font-variant-numeric:tabular-nums}
+.agenda .h{font-size:10.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.agenda .t{font-size:12px;color:var(--muted);line-height:1.3;margin-top:2px}
+.agenda a.ok{border-color:rgba(127,219,151,.4)}
+.agenda a.ok .d{color:var(--violet-hi)}
+.agenda a.ok .h{color:var(--ok)}
+.agenda a.pend{border-style:dashed;border-color:rgba(255,178,122,.5)}
+.agenda a.pend .d{color:var(--muted);font-weight:400}
+.agenda a.pend .h{color:var(--warn)}
+@media (max-width:440px){.agenda{grid-template-columns:repeat(2,1fr)}}
+
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin-top:16px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:4px;display:inline-block}
+.sw.ok{background:var(--ok-soft);border:1px solid var(--ok)}
+.sw.pend{border:1px dashed var(--warn)}
+
+/* Seções */
+section.goal{padding:46px 0 6px}
+.feed-sec{padding:44px 0 4px}
+.sec-head{text-align:center;margin-bottom:22px}
+.sec-eyebrow{font-weight:300;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--violet-hi)}
+.sec-title{font-weight:800;font-size:clamp(32px,9vw,44px);line-height:1.05;letter-spacing:.04em;text-transform:uppercase;margin-top:2px}
+.sec-line{width:56px;height:4px;border-radius:4px;margin:14px auto 12px;background:var(--violet)}
+.sec-desc{font-size:14.5px;color:var(--muted);max-width:44ch;margin:0 auto}
+.sec-count{display:block;margin-top:8px;font-size:12px;font-weight:600;color:var(--violet-hi);letter-spacing:.1em;text-transform:uppercase}
+
+/* Cartão */
+.card{position:relative;background:linear-gradient(180deg,var(--surface2),var(--surface));border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-bottom:22px;scroll-margin-top:16px;box-shadow:0 14px 34px -20px rgba(0,0,0,.9);transition:border-color .25s,box-shadow .25s}
+.card:hover,.card:focus-within{border-color:var(--violet);box-shadow:0 14px 40px -18px rgba(122,43,240,.7)}
+.card.pending{border:1.5px dashed rgba(255,178,122,.55)}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;background:linear-gradient(90deg,var(--violet-deep),var(--violet));color:#fff}
+.card.pending .card-top{background:var(--bg2);color:var(--ink);border-bottom:1px solid var(--line)}
+.card-top .date{display:block;font-weight:700;font-size:24px;line-height:1;font-variant-numeric:tabular-nums}
+.card.pending .card-top .date{font-size:19px;color:var(--warn)}
+.card-top small{display:block;font-weight:400;font-size:12px;opacity:.85;margin-top:5px;letter-spacing:.03em}
+.card-top .num{font-weight:800;font-size:13px;letter-spacing:.1em;padding:4px 10px;border-radius:99px;background:rgba(255,255,255,.16)}
+.card.pending .card-top .num{background:var(--violet-soft);color:var(--violet-hi)}
+
+.media{background:var(--bg2)}
+.frame{position:relative;display:block;overflow:hidden}
+.frame.reel{aspect-ratio:9/16;max-width:300px;margin:0 auto}
+.frame img{width:100%;height:100%;object-fit:cover}
+.play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.play i{width:62px;height:62px;border-radius:50%;background:rgba(122,43,240,.9);display:grid;place-items:center;box-shadow:0 4px 20px rgba(0,0,0,.4);transition:transform .2s}
+.play i::before{content:"";border-left:19px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
+.frame:hover .play i{transform:scale(1.08)}
+.tag{position:absolute;top:12px;left:12px;background:rgba(15,10,24,.78);color:#fff;font-size:11.5px;font-weight:500;padding:3px 10px;border-radius:99px}
+
+/* Carrossel */
+.car{position:relative}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;aspect-ratio:4/5}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;min-width:0;scroll-snap-align:start}
+.slide img{width:100%;height:100%;object-fit:cover}
+.nav{position:absolute;top:50%;transform:translateY(-50%);border:0;background:transparent;cursor:pointer;padding:0}
+.nav.prev{left:8px}.nav.next{right:8px}
+.nav span{width:38px;height:38px;border-radius:50%;background:rgba(15,10,24,.75);color:#fff;display:grid;place-items:center;font-size:24px;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.nav[disabled]{opacity:0;pointer-events:none}
+.counter{position:absolute;top:12px;right:12px;background:rgba(15,10,24,.78);color:#fff;font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;font-variant-numeric:tabular-nums}
+.dots{display:flex;justify-content:center;gap:7px;padding:12px 0 2px}
+.dots button{width:8px;height:8px;border-radius:50%;border:0;background:var(--line);cursor:pointer;padding:0}
+.dots button.on{background:var(--violet-hi)}
+.hint{text-align:center;color:var(--muted);font-size:12px;padding:4px 0 12px}
+
+.info{display:flex;flex-direction:column;gap:16px;padding:18px 18px 22px;border-top:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.chip.fmt{background:var(--violet);border-color:var(--violet);color:#fff}
+.chip.ok{color:var(--ok);border-color:rgba(127,219,151,.35);background:var(--ok-soft)}
+.chip.warn{color:var(--warn);border-color:rgba(255,178,122,.4);background:var(--warn-soft)}
+.info h3{font-weight:700;font-size:22px;line-height:1.2;text-transform:uppercase;letter-spacing:.03em}
+.label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--violet-hi);margin-bottom:6px}
+.objective{border-radius:14px;padding:14px 16px;background:var(--violet-soft);border:1px solid rgba(122,43,240,.3)}
+.objective p:not(.label),.posted p:not(.label){font-size:14.5px}
+.posted p:not(.label){color:var(--muted)}
+.leg-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.leg-head .label{margin:0}
+.badge-new{font-size:11px;font-weight:600;color:#1B1329;background:var(--warn);padding:3px 10px;border-radius:99px;white-space:nowrap}
+.badge-new.sm{padding:2px 8px}
+.caption{white-space:pre-wrap;font-size:14.5px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.copy{margin-top:10px;font-size:12.5px;font-weight:500;color:var(--violet-hi);background:transparent;border:1px solid var(--violet);border-radius:99px;padding:6px 14px;cursor:pointer}
+.copy:hover{background:var(--violet);color:#fff}
+.links{display:flex;flex-wrap:wrap;gap:8px 18px}
+.link{font-size:13.5px;font-weight:600;color:var(--violet-hi);text-decoration:none}
+.link.dim{color:var(--muted);font-weight:400}
+.link:hover{text-decoration:underline}
+
+/* Prévia do feed */
+.phone{max-width:380px;margin:0 auto;background:#000;border:1px solid var(--line);border-radius:30px;padding:16px 0 12px;box-shadow:0 20px 50px -20px rgba(122,43,240,.6)}
+.ig-head{display:flex;align-items:center;gap:14px;padding:4px 16px 14px}
+.ig-avatar{width:66px;height:66px;border-radius:50%;flex:none;display:grid;place-items:center;background:linear-gradient(160deg,var(--violet),var(--violet-deep));box-shadow:0 0 0 3px #000,0 0 0 5px var(--violet)}
+.ig-avatar .logo{width:48px;margin:0}
+.ig-user{font-weight:600;font-size:15px}
+.ig-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.ig-tabs{display:flex;border-top:1px solid #222}
+.ig-tabs span{flex:1;text-align:center;padding:9px 0;font-size:11px;font-weight:600;letter-spacing:.08em;color:#666}
+.ig-tabs span.on{color:#fff;box-shadow:inset 0 1px 0 #fff}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.ig-tile{position:relative;aspect-ratio:3/4;overflow:hidden;background:#111;border:0;padding:0;cursor:pointer;display:block}
+.ig-tile img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.ig-tile:hover img{transform:scale(1.05)}
+.ig-tile.pend{outline:2px dashed var(--warn);outline-offset:-2px}
+.ig-tile.pend img{opacity:.7}
+.ig-icon{position:absolute;top:7px;right:7px;width:18px;height:18px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
+.ig-date{position:absolute;left:6px;bottom:6px;background:var(--violet);color:#fff;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:99px;font-variant-numeric:tabular-nums}
+.ig-tile.pend .ig-date{background:rgba(15,10,24,.85);color:var(--warn)}
+
+footer{margin-top:40px;padding:34px 20px 44px;text-align:center;font-size:13px;color:rgba(255,255,255,.88);background:linear-gradient(160deg,var(--violet),var(--violet-deep))}
+footer .logo{width:90px;margin:0 auto 12px}
+footer a{color:#fff}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--violet);color:#fff;font-size:14px;font-weight:500;padding:10px 18px;border-radius:99px;opacity:0;transition:.25s;pointer-events:none;z-index:9}
+.toast.on{opacity:1;transform:translateX(-50%)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+.ig-tile.old{cursor:default;background:repeating-linear-gradient(135deg,#140d20 0 8px,#1b1329 8px 16px)}
+.ig-tile.old span{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-size:11px;color:var(--muted);padding:6px}
+.frame video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+</style>
+</head>
+<body>
+<header class="top">
+  <svg class="logo" role="img" aria-label="LED'S Íntima" xmlns="http://www.w3.org/2000/svg" viewBox="408 275 1075 542" fill="currentColor"><path d="M 1301.5 289.9 C 1289.8 289.9 1280.3 299.4 1280.3 311.0 C 1280.3 322.7 1289.8 332.2 1301.5 332.2 C 1313.1 332.2 1322.6 322.7 1322.6 311.0 C 1322.6 299.4 1313.1 289.9 1301.5 289.9 M 1301.5 337.0 C 1287.1 337.0 1275.5 325.4 1275.5 311.0 C 1275.5 296.7 1287.1 285.0 1301.5 285.0 C 1315.8 285.0 1327.5 296.7 1327.5 311.0 C 1327.5 325.4 1315.8 337.0 1301.5 337.0 "/><path d="M 1231.9 417.5 L 1240.1 406.7 L 1250.4 341.6 C 1251.3 333.3 1251.0 327.0 1249.3 322.9 C 1247.6 317.7 1243.7 315.1 1237.6 315.2 C 1232.1 315.1 1228.1 318.0 1225.8 324.2 C 1224.2 329.2 1223.8 335.4 1224.7 342.9 Z M 1231.9 417.5 "/><path d="M 418.7 643.6 C 432.5 643.6 442.2 641.5 447.8 637.5 C 452.8 633.7 455.3 627.7 455.3 619.3 L 455.3 408.3 C 455.3 398.7 452.8 392.3 447.8 389.0 C 442.5 385.5 432.8 383.7 418.7 383.7 L 418.7 374.3 L 519.6 374.3 L 519.6 383.7 C 503.5 383.7 492.7 385.5 487.1 389.0 C 482.3 392.3 479.9 398.7 479.9 408.3 L 479.9 619.3 C 479.9 627.7 482 633.7 486.0 637.5 C 490.3 641.5 497.7 643.6 508.3 643.6 L 548.4 643.6 C 566.5 643.6 583.6 638.0 599.5 626.9 C 615.1 616.3 628.3 601.4 639.2 582.3 L 646.7 586.1 L 618.4 653.4 L 418.7 653.4 Z M 418.7 643.6 "/><path d="M 684.6 642.8 C 696.4 642.8 705.0 640.7 710.3 636.4 C 715.8 632.3 718.6 625.7 718.6 616.3 L 718.6 408.7 C 718.6 399.8 715.8 393.4 710.3 389.4 C 705.0 385.6 696.4 383.7 684.6 383.7 L 684.6 374.3 L 885.0 374.3 L 912.3 440.4 L 906.6 444.2 L 896.7 431.4 C 885.4 416.0 875.4 405.3 866.9 399.2 C 852.0 388.9 833.6 383.7 811.6 383.7 L 773.4 383.7 C 763.1 383.7 755.5 385.6 750.7 389.4 C 745.7 393.4 743.2 399.8 743.2 408.7 L 743.2 502.1 L 801.8 502.1 C 815.9 502.1 826.3 498.6 832.8 491.5 C 840.1 483.9 843.8 471.3 843.8 453.7 L 852.9 453.7 L 852.9 562.2 L 843.8 562.2 C 843.8 545.3 840.1 532.9 832.8 524.8 C 825.8 517.0 815.4 513.1 801.8 513.1 L 743.2 513.1 L 743.2 616.3 C 743.2 625.4 745.7 632.1 750.7 636.4 C 755.8 640.7 763.6 642.8 774.2 642.8 L 810.1 642.8 C 832.3 642.8 851.4 638.0 867.2 628.4 C 882.4 619.1 897.9 603.3 913.8 581.1 L 920.6 584.9 L 894.5 652.6 L 684.6 652.6 Z M 684.6 642.8 "/><path d="M 958.4 642.8 C 970.5 642.8 979.2 640.7 984.5 636.4 C 989.8 632.1 992.4 624.8 992.4 614.4 L 992.4 409.8 C 992.4 400.7 989.8 394.0 984.5 389.8 C 978.9 385.7 970.2 383.7 958.4 383.7 L 958.4 374.3 L 1070.7 374.3 C 1114.9 374.3 1148.9 388.6 1172.8 417.4 C 1194.0 442.8 1204.6 474.7 1204.6 513.1 C 1204.6 551.6 1194.0 583.7 1172.8 609.1 C 1148.9 638.1 1114.9 652.6 1070.7 652.6 L 958.4 652.6 Z M 1024.2 636.4 C 1029.0 640.7 1036.9 642.8 1048.0 642.8 L 1070.7 642.8 C 1104.5 642.8 1131.4 629.3 1151.3 602.3 C 1169.4 578.1 1178.5 548.4 1178.5 513.1 C 1178.5 478.3 1169.4 448.6 1151.3 424.2 C 1131.4 397.2 1104.5 383.7 1070.7 383.7 L 1048.0 383.7 C 1037.2 383.7 1029.2 385.7 1024.2 389.8 C 1019.4 394.0 1017.0 400.7 1017.0 409.8 L 1017.0 614.4 C 1017.0 624.8 1019.4 632.1 1024.2 636.4 "/><path d="M 441.5 749.0 L 441.5 751.1 C 438.1 751.1 435.8 751.5 434.5 752.3 C 433.3 753.0 432.6 754.5 432.6 756.6 L 432.6 799.0 C 432.6 800.7 433.3 802.0 434.5 802.8 C 435.9 803.6 438.2 804.0 441.5 804.0 L 441.5 806.1 L 418.7 806.1 L 418.7 804.0 C 421.8 804.0 424.1 803.6 425.5 802.8 C 426.7 802.0 427.4 800.7 427.4 799.0 L 427.4 756.6 C 427.4 754.5 426.7 753.0 425.5 752.3 C 424.2 751.5 422 751.1 418.7 751.1 L 418.7 749.0 Z M 431.7 737.3 C 432.3 735.9 433.2 735.0 434.4 734.7 C 435.5 734.3 436.3 734.5 436.9 735.4 C 437.6 736.4 437.7 737.4 437.4 738.2 C 437.2 738.7 436.6 739.5 435.5 740.5 L 428.6 747.2 L 425.9 747.2 Z M 431.7 737.3 "/><path d="M 602.4 803.0 C 605.1 803.0 607.0 802.6 608.1 801.7 C 609.2 800.8 609.8 799.3 609.8 797.3 L 609.8 752.3 C 609.8 750.2 609.2 748.7 608.1 747.8 C 606.9 746.9 605.0 746.5 602.4 746.5 L 602.4 744.4 L 613.2 744.4 L 651.6 795.2 L 651.6 751.2 C 651.6 749.5 651.0 748.3 649.8 747.6 C 648.6 746.9 646.7 746.5 644.1 746.5 L 644.1 744.4 L 661.6 744.4 L 661.6 746.5 C 659.0 746.5 657.1 746.9 655.9 747.7 C 654.7 748.4 654.1 749.6 654.1 751.2 L 654.1 805.4 L 652.7 805.4 L 612.4 751.8 L 612.4 797.3 C 612.4 799.4 612.9 800.9 613.9 801.7 C 615.0 802.6 617.0 803.0 619.8 803.0 L 619.8 805.2 L 602.4 805.2 Z M 602.4 803.0 "/><path d="M 821.7 802.1 C 824.8 802.1 827.0 801.8 828.4 801.3 C 830.3 800.6 831.2 799.3 831.2 797.5 L 831.2 750.2 C 831.2 748.4 830.7 747.2 829.7 746.5 C 828.6 745.8 826.8 745.5 824.2 745.5 C 819.3 745.5 815.2 746.8 812.0 749.4 C 809.9 751.1 807.7 753.9 805.2 757.8 L 804.0 757.2 L 808.9 743.3 L 858.9 743.3 L 863.8 757.8 L 862.4 758.3 L 861.5 756.9 C 859.2 753.0 857.2 750.3 855.5 748.8 C 852.8 746.6 849.3 745.5 845.0 745.5 C 842.0 745.5 839.8 745.8 838.5 746.5 C 837.1 747.3 836.4 748.5 836.4 750.2 L 836.4 797.5 C 836.4 799.4 837.2 800.7 838.8 801.3 C 840.1 801.8 842.5 802.1 846.0 802.1 L 846.0 804.2 L 821.7 804.2 Z M 821.7 802.1 "/><path d="M 1046.2 741.1 L 1046.2 743.2 C 1043.3 743.2 1041.3 743.5 1040.2 744.3 C 1039.0 745.1 1038.4 746.6 1038.4 748.8 L 1038.4 794.8 C 1038.4 796.5 1039.0 797.8 1040.2 798.5 C 1041.4 799.3 1043.4 799.7 1046.2 799.7 L 1046.2 801.8 L 1025.4 801.8 L 1025.4 799.7 C 1028.2 799.7 1030.2 799.3 1031.4 798.5 C 1032.6 797.8 1033.2 796.5 1033.2 794.8 L 1033.2 748.8 C 1033.2 746.6 1032.6 745.1 1031.4 744.3 C 1030.2 743.5 1028.2 743.2 1025.4 743.2 L 1025.4 741.1 Z M 1046.2 741.1 "/><path d="M 1203.5 804.0 C 1206.1 804.0 1208.0 803.6 1209.1 802.7 C 1210.1 801.8 1210.6 800.3 1210.6 798.3 L 1210.6 752.2 C 1210.6 750.5 1210.1 749.3 1209.0 748.6 C 1207.9 747.8 1206.0 747.5 1203.5 747.5 L 1203.5 745.4 L 1217.8 745.4 L 1237.6 798.3 L 1257.3 745.4 L 1272.1 745.4 L 1272.1 747.5 C 1269.2 747.5 1267.3 747.8 1266.2 748.6 C 1265.4 749.3 1264.9 750.5 1264.9 752.2 L 1264.9 798.3 C 1264.9 800.2 1265.4 801.6 1266.4 802.5 C 1267.6 803.5 1269.4 804.0 1272.1 804.0 L 1272.1 806.1 L 1251.6 806.1 L 1251.6 804.0 C 1254.5 804.0 1256.7 803.5 1257.9 802.5 C 1259.1 801.7 1259.6 800.2 1259.6 798.3 L 1259.6 748.3 L 1258.7 748.3 L 1236.9 806.7 L 1235.5 806.7 L 1214.0 749.5 L 1213.0 749.5 L 1213.0 798.3 C 1213.0 800.3 1213.5 801.8 1214.6 802.7 C 1215.8 803.6 1217.9 804.0 1221.1 804.0 L 1221.1 806.1 L 1203.5 806.1 Z M 1203.5 804.0 "/><path d="M 1461.4 795.5 C 1462.1 797.8 1463.2 799.3 1464.5 800.2 C 1465.7 801.1 1467.5 801.5 1469.9 801.5 L 1469.9 803.7 L 1448.5 803.7 L 1448.5 801.5 C 1452.1 801.5 1454.5 801.2 1455.5 800.5 C 1456.7 799.6 1456.9 798.1 1456.1 795.9 L 1450.6 781.5 L 1425.2 781.5 L 1420.7 793.9 C 1419.6 797.0 1419.6 799.0 1420.7 800.1 C 1421.7 801.0 1424.1 801.5 1427.8 801.5 L 1427.8 803.7 L 1409.5 803.7 L 1409.5 801.5 C 1411.9 801.5 1413.6 801.0 1414.7 800.1 C 1415.8 799.0 1417.1 796.6 1418.4 792.9 L 1436.0 743.5 L 1440.7 741.6 Z M 1426.0 779.1 L 1449.6 779.1 L 1437.6 747.2 Z M 1426.0 779.1 "/><path d="M 1317.1 629.6 C 1336.5 644.2 1358.3 651.6 1382.6 651.6 C 1403.4 651.6 1419.5 647.1 1430.9 638.2 C 1444.1 628.0 1450.6 612.5 1450.6 591.7 C 1450.6 573.6 1444.3 559.8 1431.7 550.4 C 1421.0 542.4 1400.1 534.0 1368.8 525.1 C 1342.0 516.9 1321.9 507.8 1308.6 497.9 C 1290.0 483.8 1280.7 465.7 1280.7 443.6 C 1280.7 425.0 1286.5 409.5 1298.1 397.1 C 1312.8 382.0 1334.2 374.4 1362.5 374.4 C 1369.9 374.4 1377.4 375.2 1384.8 376.7 C 1389.0 377.6 1394.6 379.3 1401.5 381.5 C 1406.8 383.0 1410.4 384.0 1412.3 384.5 C 1415.6 385.0 1418.3 384.8 1420.5 384.1 L 1439.1 376.7 L 1464.0 445.8 L 1458.1 449.6 C 1445.9 429.0 1432.4 413.4 1417.5 402.7 C 1400.4 390.3 1381.5 384.1 1360.6 384.1 C 1343.5 384.1 1329.8 388.1 1319.3 396.0 C 1307.4 405.2 1301.5 418.9 1301.5 437.3 C 1301.5 455.4 1309.3 470.0 1324.9 481.2 C 1336.3 489.4 1354.3 497.1 1378.9 504.2 C 1409.1 512.2 1431.1 521.1 1444.7 531.0 C 1463.0 544.2 1472.2 561.9 1472.2 584.2 C 1472.2 609.8 1463.5 629.2 1446.2 642.6 C 1430.8 654.8 1410.1 660.8 1384.1 660.8 C 1376.4 660.8 1368.1 659.9 1359.1 657.9 C 1354.2 656.6 1347.5 654.8 1339.1 652.3 C 1334.8 651.1 1331.9 650.2 1330.1 649.7 C 1327.4 649.2 1325.4 648.9 1324.2 648.9 C 1320.0 648.9 1315.2 650.1 1310.0 652.3 C 1305.1 654.3 1300.5 656.9 1296.3 660.1 L 1269.5 587.9 L 1277.3 584.2 C 1289.7 603.8 1303.0 618.9 1317.1 629.6 "/><path d="M 1302.6 311.2 C 1305.7 311.2 1307.7 309.6 1307.7 307.0 L 1307.7 307.0 C 1307.7 304.3 1305.8 302.8 1302.5 302.8 L 1296.1 302.8 L 1296.1 311.2 Z M 1291.7 298.8 L 1302.9 298.8 C 1306.1 298.8 1308.5 299.7 1310.1 301.3 C 1311.5 302.7 1312.2 304.5 1312.2 306.7 L 1312.2 306.8 C 1312.2 310.9 1309.8 313.4 1306.2 314.4 L 1313.0 323.9 L 1307.8 323.9 L 1301.6 315.2 L 1296.1 315.2 L 1296.1 323.9 L 1291.7 323.9 Z M 1291.7 298.8 "/></svg>
+  <p class="eyebrow">Conteúdos <b>programados</b></p>
+  <span class="datechip">Atualizado em <strong>25/11/2026</strong></span>
+  <p class="lead">7 conteúdos da pasta Geral: 2 já publicados e 5 aguardando data</p>
+</header>
+
+<main class="wrap">
+  <ul class="agenda"><li><a class="ok" href="#p-manifesto"><span class="d">18/11</span><span class="h">✓ publicado</span><span class="t">Manifesto</span></a></li><li><a class="ok" href="#p-consciencia"><span class="d">20/11</span><span class="h">✓ publicado</span><span class="t">Consciência Negra</span></a></li><li><a class="pend" href="#p-spoiler1"><span class="d">— / —</span><span class="h">data a definir</span><span class="t">Spoiler Doce Verão 1</span></a></li><li><a class="pend" href="#p-carrossel"><span class="d">— / —</span><span class="h">data a definir</span><span class="t">Carrossel Confort</span></a></li><li><a class="pend" href="#p-spoiler2"><span class="d">— / —</span><span class="h">data a definir</span><span class="t">Spoiler Doce Verão 2</span></a></li><li><a class="pend" href="#p-confortvideo"><span class="d">— / —</span><span class="h">data a definir</span><span class="t">Confort em vídeo</span></a></li><li><a class="pend" href="#p-bastidores"><span class="d">— / —</span><span class="h">data a definir</span><span class="t">Reels bastidores</span></a></li></ul>
+  <div class="legend">
+    <span><i class="sw ok"></i>Publicado</span>
+    <span><i class="sw pend"></i>Data a definir</span>
+    <span><span class="badge-new sm">✎ Nova</span> legenda escrita para aprovação</span>
+  </div>
+
+  <section class="feed-sec">
+    <div class="sec-head"><p class="sec-eyebrow">Prévia do</p><h2 class="sec-title">Feed</h2><div class="sec-line"></div>
+      <p class="sec-desc">Como o perfil fica com tudo no ar, do mais novo para o mais antigo. A ordem dos pendentes segue as pastas e muda quando as datas forem definidas. Toque em um post para ver os detalhes.</p></div>
+    <div class="phone">
+      <div class="ig-head">
+        <div class="ig-avatar"><svg class="logo" role="img" aria-label="LED'S Íntima" xmlns="http://www.w3.org/2000/svg" viewBox="408 275 1075 542" fill="currentColor"><path d="M 1301.5 289.9 C 1289.8 289.9 1280.3 299.4 1280.3 311.0 C 1280.3 322.7 1289.8 332.2 1301.5 332.2 C 1313.1 332.2 1322.6 322.7 1322.6 311.0 C 1322.6 299.4 1313.1 289.9 1301.5 289.9 M 1301.5 337.0 C 1287.1 337.0 1275.5 325.4 1275.5 311.0 C 1275.5 296.7 1287.1 285.0 1301.5 285.0 C 1315.8 285.0 1327.5 296.7 1327.5 311.0 C 1327.5 325.4 1315.8 337.0 1301.5 337.0 "/><path d="M 1231.9 417.5 L 1240.1 406.7 L 1250.4 341.6 C 1251.3 333.3 1251.0 327.0 1249.3 322.9 C 1247.6 317.7 1243.7 315.1 1237.6 315.2 C 1232.1 315.1 1228.1 318.0 1225.8 324.2 C 1224.2 329.2 1223.8 335.4 1224.7 342.9 Z M 1231.9 417.5 "/><path d="M 418.7 643.6 C 432.5 643.6 442.2 641.5 447.8 637.5 C 452.8 633.7 455.3 627.7 455.3 619.3 L 455.3 408.3 C 455.3 398.7 452.8 392.3 447.8 389.0 C 442.5 385.5 432.8 383.7 418.7 383.7 L 418.7 374.3 L 519.6 374.3 L 519.6 383.7 C 503.5 383.7 492.7 385.5 487.1 389.0 C 482.3 392.3 479.9 398.7 479.9 408.3 L 479.9 619.3 C 479.9 627.7 482 633.7 486.0 637.5 C 490.3 641.5 497.7 643.6 508.3 643.6 L 548.4 643.6 C 566.5 643.6 583.6 638.0 599.5 626.9 C 615.1 616.3 628.3 601.4 639.2 582.3 L 646.7 586.1 L 618.4 653.4 L 418.7 653.4 Z M 418.7 643.6 "/><path d="M 684.6 642.8 C 696.4 642.8 705.0 640.7 710.3 636.4 C 715.8 632.3 718.6 625.7 718.6 616.3 L 718.6 408.7 C 718.6 399.8 715.8 393.4 710.3 389.4 C 705.0 385.6 696.4 383.7 684.6 383.7 L 684.6 374.3 L 885.0 374.3 L 912.3 440.4 L 906.6 444.2 L 896.7 431.4 C 885.4 416.0 875.4 405.3 866.9 399.2 C 852.0 388.9 833.6 383.7 811.6 383.7 L 773.4 383.7 C 763.1 383.7 755.5 385.6 750.7 389.4 C 745.7 393.4 743.2 399.8 743.2 408.7 L 743.2 502.1 L 801.8 502.1 C 815.9 502.1 826.3 498.6 832.8 491.5 C 840.1 483.9 843.8 471.3 843.8 453.7 L 852.9 453.7 L 852.9 562.2 L 843.8 562.2 C 843.8 545.3 840.1 532.9 832.8 524.8 C 825.8 517.0 815.4 513.1 801.8 513.1 L 743.2 513.1 L 743.2 616.3 C 743.2 625.4 745.7 632.1 750.7 636.4 C 755.8 640.7 763.6 642.8 774.2 642.8 L 810.1 642.8 C 832.3 642.8 851.4 638.0 867.2 628.4 C 882.4 619.1 897.9 603.3 913.8 581.1 L 920.6 584.9 L 894.5 652.6 L 684.6 652.6 Z M 684.6 642.8 "/><path d="M 958.4 642.8 C 970.5 642.8 979.2 640.7 984.5 636.4 C 989.8 632.1 992.4 624.8 992.4 614.4 L 992.4 409.8 C 992.4 400.7 989.8 394.0 984.5 389.8 C 978.9 385.7 970.2 383.7 958.4 383.7 L 958.4 374.3 L 1070.7 374.3 C 1114.9 374.3 1148.9 388.6 1172.8 417.4 C 1194.0 442.8 1204.6 474.7 1204.6 513.1 C 1204.6 551.6 1194.0 583.7 1172.8 609.1 C 1148.9 638.1 1114.9 652.6 1070.7 652.6 L 958.4 652.6 Z M 1024.2 636.4 C 1029.0 640.7 1036.9 642.8 1048.0 642.8 L 1070.7 642.8 C 1104.5 642.8 1131.4 629.3 1151.3 602.3 C 1169.4 578.1 1178.5 548.4 1178.5 513.1 C 1178.5 478.3 1169.4 448.6 1151.3 424.2 C 1131.4 397.2 1104.5 383.7 1070.7 383.7 L 1048.0 383.7 C 1037.2 383.7 1029.2 385.7 1024.2 389.8 C 1019.4 394.0 1017.0 400.7 1017.0 409.8 L 1017.0 614.4 C 1017.0 624.8 1019.4 632.1 1024.2 636.4 "/><path d="M 441.5 749.0 L 441.5 751.1 C 438.1 751.1 435.8 751.5 434.5 752.3 C 433.3 753.0 432.6 754.5 432.6 756.6 L 432.6 799.0 C 432.6 800.7 433.3 802.0 434.5 802.8 C 435.9 803.6 438.2 804.0 441.5 804.0 L 441.5 806.1 L 418.7 806.1 L 418.7 804.0 C 421.8 804.0 424.1 803.6 425.5 802.8 C 426.7 802.0 427.4 800.7 427.4 799.0 L 427.4 756.6 C 427.4 754.5 426.7 753.0 425.5 752.3 C 424.2 751.5 422 751.1 418.7 751.1 L 418.7 749.0 Z M 431.7 737.3 C 432.3 735.9 433.2 735.0 434.4 734.7 C 435.5 734.3 436.3 734.5 436.9 735.4 C 437.6 736.4 437.7 737.4 437.4 738.2 C 437.2 738.7 436.6 739.5 435.5 740.5 L 428.6 747.2 L 425.9 747.2 Z M 431.7 737.3 "/><path d="M 602.4 803.0 C 605.1 803.0 607.0 802.6 608.1 801.7 C 609.2 800.8 609.8 799.3 609.8 797.3 L 609.8 752.3 C 609.8 750.2 609.2 748.7 608.1 747.8 C 606.9 746.9 605.0 746.5 602.4 746.5 L 602.4 744.4 L 613.2 744.4 L 651.6 795.2 L 651.6 751.2 C 651.6 749.5 651.0 748.3 649.8 747.6 C 648.6 746.9 646.7 746.5 644.1 746.5 L 644.1 744.4 L 661.6 744.4 L 661.6 746.5 C 659.0 746.5 657.1 746.9 655.9 747.7 C 654.7 748.4 654.1 749.6 654.1 751.2 L 654.1 805.4 L 652.7 805.4 L 612.4 751.8 L 612.4 797.3 C 612.4 799.4 612.9 800.9 613.9 801.7 C 615.0 802.6 617.0 803.0 619.8 803.0 L 619.8 805.2 L 602.4 805.2 Z M 602.4 803.0 "/><path d="M 821.7 802.1 C 824.8 802.1 827.0 801.8 828.4 801.3 C 830.3 800.6 831.2 799.3 831.2 797.5 L 831.2 750.2 C 831.2 748.4 830.7 747.2 829.7 746.5 C 828.6 745.8 826.8 745.5 824.2 745.5 C 819.3 745.5 815.2 746.8 812.0 749.4 C 809.9 751.1 807.7 753.9 805.2 757.8 L 804.0 757.2 L 808.9 743.3 L 858.9 743.3 L 863.8 757.8 L 862.4 758.3 L 861.5 756.9 C 859.2 753.0 857.2 750.3 855.5 748.8 C 852.8 746.6 849.3 745.5 845.0 745.5 C 842.0 745.5 839.8 745.8 838.5 746.5 C 837.1 747.3 836.4 748.5 836.4 750.2 L 836.4 797.5 C 836.4 799.4 837.2 800.7 838.8 801.3 C 840.1 801.8 842.5 802.1 846.0 802.1 L 846.0 804.2 L 821.7 804.2 Z M 821.7 802.1 "/><path d="M 1046.2 741.1 L 1046.2 743.2 C 1043.3 743.2 1041.3 743.5 1040.2 744.3 C 1039.0 745.1 1038.4 746.6 1038.4 748.8 L 1038.4 794.8 C 1038.4 796.5 1039.0 797.8 1040.2 798.5 C 1041.4 799.3 1043.4 799.7 1046.2 799.7 L 1046.2 801.8 L 1025.4 801.8 L 1025.4 799.7 C 1028.2 799.7 1030.2 799.3 1031.4 798.5 C 1032.6 797.8 1033.2 796.5 1033.2 794.8 L 1033.2 748.8 C 1033.2 746.6 1032.6 745.1 1031.4 744.3 C 1030.2 743.5 1028.2 743.2 1025.4 743.2 L 1025.4 741.1 Z M 1046.2 741.1 "/><path d="M 1203.5 804.0 C 1206.1 804.0 1208.0 803.6 1209.1 802.7 C 1210.1 801.8 1210.6 800.3 1210.6 798.3 L 1210.6 752.2 C 1210.6 750.5 1210.1 749.3 1209.0 748.6 C 1207.9 747.8 1206.0 747.5 1203.5 747.5 L 1203.5 745.4 L 1217.8 745.4 L 1237.6 798.3 L 1257.3 745.4 L 1272.1 745.4 L 1272.1 747.5 C 1269.2 747.5 1267.3 747.8 1266.2 748.6 C 1265.4 749.3 1264.9 750.5 1264.9 752.2 L 1264.9 798.3 C 1264.9 800.2 1265.4 801.6 1266.4 802.5 C 1267.6 803.5 1269.4 804.0 1272.1 804.0 L 1272.1 806.1 L 1251.6 806.1 L 1251.6 804.0 C 1254.5 804.0 1256.7 803.5 1257.9 802.5 C 1259.1 801.7 1259.6 800.2 1259.6 798.3 L 1259.6 748.3 L 1258.7 748.3 L 1236.9 806.7 L 1235.5 806.7 L 1214.0 749.5 L 1213.0 749.5 L 1213.0 798.3 C 1213.0 800.3 1213.5 801.8 1214.6 802.7 C 1215.8 803.6 1217.9 804.0 1221.1 804.0 L 1221.1 806.1 L 1203.5 806.1 Z M 1203.5 804.0 "/><path d="M 1461.4 795.5 C 1462.1 797.8 1463.2 799.3 1464.5 800.2 C 1465.7 801.1 1467.5 801.5 1469.9 801.5 L 1469.9 803.7 L 1448.5 803.7 L 1448.5 801.5 C 1452.1 801.5 1454.5 801.2 1455.5 800.5 C 1456.7 799.6 1456.9 798.1 1456.1 795.9 L 1450.6 781.5 L 1425.2 781.5 L 1420.7 793.9 C 1419.6 797.0 1419.6 799.0 1420.7 800.1 C 1421.7 801.0 1424.1 801.5 1427.8 801.5 L 1427.8 803.7 L 1409.5 803.7 L 1409.5 801.5 C 1411.9 801.5 1413.6 801.0 1414.7 800.1 C 1415.8 799.0 1417.1 796.6 1418.4 792.9 L 1436.0 743.5 L 1440.7 741.6 Z M 1426.0 779.1 L 1449.6 779.1 L 1437.6 747.2 Z M 1426.0 779.1 "/><path d="M 1317.1 629.6 C 1336.5 644.2 1358.3 651.6 1382.6 651.6 C 1403.4 651.6 1419.5 647.1 1430.9 638.2 C 1444.1 628.0 1450.6 612.5 1450.6 591.7 C 1450.6 573.6 1444.3 559.8 1431.7 550.4 C 1421.0 542.4 1400.1 534.0 1368.8 525.1 C 1342.0 516.9 1321.9 507.8 1308.6 497.9 C 1290.0 483.8 1280.7 465.7 1280.7 443.6 C 1280.7 425.0 1286.5 409.5 1298.1 397.1 C 1312.8 382.0 1334.2 374.4 1362.5 374.4 C 1369.9 374.4 1377.4 375.2 1384.8 376.7 C 1389.0 377.6 1394.6 379.3 1401.5 381.5 C 1406.8 383.0 1410.4 384.0 1412.3 384.5 C 1415.6 385.0 1418.3 384.8 1420.5 384.1 L 1439.1 376.7 L 1464.0 445.8 L 1458.1 449.6 C 1445.9 429.0 1432.4 413.4 1417.5 402.7 C 1400.4 390.3 1381.5 384.1 1360.6 384.1 C 1343.5 384.1 1329.8 388.1 1319.3 396.0 C 1307.4 405.2 1301.5 418.9 1301.5 437.3 C 1301.5 455.4 1309.3 470.0 1324.9 481.2 C 1336.3 489.4 1354.3 497.1 1378.9 504.2 C 1409.1 512.2 1431.1 521.1 1444.7 531.0 C 1463.0 544.2 1472.2 561.9 1472.2 584.2 C 1472.2 609.8 1463.5 629.2 1446.2 642.6 C 1430.8 654.8 1410.1 660.8 1384.1 660.8 C 1376.4 660.8 1368.1 659.9 1359.1 657.9 C 1354.2 656.6 1347.5 654.8 1339.1 652.3 C 1334.8 651.1 1331.9 650.2 1330.1 649.7 C 1327.4 649.2 1325.4 648.9 1324.2 648.9 C 1320.0 648.9 1315.2 650.1 1310.0 652.3 C 1305.1 654.3 1300.5 656.9 1296.3 660.1 L 1269.5 587.9 L 1277.3 584.2 C 1289.7 603.8 1303.0 618.9 1317.1 629.6 "/><path d="M 1302.6 311.2 C 1305.7 311.2 1307.7 309.6 1307.7 307.0 L 1307.7 307.0 C 1307.7 304.3 1305.8 302.8 1302.5 302.8 L 1296.1 302.8 L 1296.1 311.2 Z M 1291.7 298.8 L 1302.9 298.8 C 1306.1 298.8 1308.5 299.7 1310.1 301.3 C 1311.5 302.7 1312.2 304.5 1312.2 306.7 L 1312.2 306.8 C 1312.2 310.9 1309.8 313.4 1306.2 314.4 L 1313.0 323.9 L 1307.8 323.9 L 1301.6 315.2 L 1296.1 315.2 L 1296.1 323.9 L 1291.7 323.9 Z M 1291.7 298.8 "/></svg></div>
+        <div><p class="ig-user">ledsintima</p><p class="ig-sub">Prévia com os 7 conteúdos no feed</p></div>
+      </div>
+      <div class="ig-tabs"><span class="on">POSTS</span><span>REELS</span><span>MARCADOS</span></div>
+      <div class="ig-grid"><button type="button" class="ig-tile pend" data-go="p-bastidores" aria-label="Ver Reels bastidores"><img src="img/leds-bastidores.jpg" alt="" loading="lazy"><svg class="ig-icon" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 8.5v7l6-3.5z"/></svg><span class="ig-date">a definir</span></button><button type="button" class="ig-tile pend" data-go="p-confortvideo" aria-label="Ver Confort em vídeo"><img src="img/leds-confortvideo.jpg" alt="" loading="lazy"><svg class="ig-icon" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 8.5v7l6-3.5z"/></svg><span class="ig-date">a definir</span></button><button type="button" class="ig-tile pend" data-go="p-spoiler2" aria-label="Ver Spoiler Doce Verão 2"><img src="img/leds-spoiler2.jpg" alt="" loading="lazy"><svg class="ig-icon" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 8.5v7l6-3.5z"/></svg><span class="ig-date">a definir</span></button><button type="button" class="ig-tile pend" data-go="p-carrossel" aria-label="Ver Carrossel Confort"><img src="img/leds-car-05.jpg" alt="" loading="lazy"><svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="14" rx="2" fill="none" stroke="#fff" stroke-width="2"/><rect x="4" y="7" width="13" height="14" rx="2" fill="#fff"/></svg><span class="ig-date">a definir</span></button><button type="button" class="ig-tile pend" data-go="p-spoiler1" aria-label="Ver Spoiler Doce Verão 1"><img src="img/leds-spoiler1.jpg" alt="" loading="lazy"><svg class="ig-icon" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 8.5v7l6-3.5z"/></svg><span class="ig-date">a definir</span></button><button type="button" class="ig-tile" data-go="p-consciencia" aria-label="Ver Consciência Negra"><img src="img/leds-consciencia.jpg" alt="" loading="lazy"><svg class="ig-icon" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 8.5v7l6-3.5z"/></svg><span class="ig-date">20/11</span></button><button type="button" class="ig-tile" data-go="p-manifesto" aria-label="Ver Manifesto"><img src="img/leds-manifesto.jpg" alt="" loading="lazy"><svg class="ig-icon" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 8.5v7l6-3.5z"/></svg><span class="ig-date">18/11</span></button><div class="ig-tile old"><span>posts anteriores</span></div><div class="ig-tile old"><span>posts anteriores</span></div></div>
+    </div>
+  </section>
+
+  <section class="goal">
+    <div class="sec-head"><p class="sec-eyebrow">Prontos para</p><h2 class="sec-title">Programar</h2><div class="sec-line"></div>
+      <p class="sec-desc">Peças finalizadas no Drive, esperando data, horário e aprovação da legenda.</p><span class="sec-count">5 conteúdos</span></div>
+    <article class="card pending" id="p-spoiler1">
+  <div class="card-top"><div><span class="date">A definir</span><small>data e horário pendentes</small></div><span class="num">03</span></div>
+  <div class="media"><div class="frame reel"><video controls playsinline preload="none" poster="img/leds-spoiler1.jpg" aria-label="Vídeo Spoiler Doce Verão 1"><source src="vid/leds-spoiler1.mp4" type="video/mp4">Seu navegador não reproduz este vídeo.</video></div></div>
+  <div class="info">
+    <div class="chips"><span class="chip fmt">Reels</span><span class="chip">Pasta 03</span><span class="chip warn">Aguardando programação</span></div>
+    <h3>Spoiler Doce Verão 1</h3>
+    <div class="objective"><p class="label">Objetivo</p><p>Criar expectativa para a coleção Doce Verão com bastidores da nova coleção, sem revelar as peças.</p></div>
+    <div class="leg"><div class="leg-head"><p class="label">Legenda</p><span class="badge-new">✎ Nova · para aprovação</span></div>
+      <p class="caption">Nem todo verão tem gosto de mar.
+
+Tem um novo verão chegando. E ele tem um encanto só nosso.
+
+Doce Verão · em breve.
+
+#LEDSÍntima #DoceVerão #NewCollection</p><button type="button" class="copy" data-copy>Copiar legenda</button></div>
+    <div class="links"><a class="link" href="https://drive.google.com/file/d/1WkhgeBhO7nt0uySv77XJJw9VDeNtoosr/view" target="_blank" rel="noopener">Abrir vídeo no Drive ↗</a><a class="link dim" href="https://drive.google.com/drive/folders/13-CvgEmXEOwOTrQMzGH8XjoqsITFUBKf" target="_blank" rel="noopener">Pasta 03 ↗</a></div>
+  </div>
+</article><article class="card pending" id="p-carrossel">
+  <div class="card-top"><div><span class="date">A definir</span><small>data e horário pendentes</small></div><span class="num">04</span></div>
+  <div class="media"><div class="car" data-car>
+      <div class="track" tabindex="0" aria-label="Telas do carrossel"><div class="slide"><img src="img/leds-car-05.jpg" alt="Tela 1 do carrossel" loading="lazy"></div><div class="slide"><img src="img/leds-car-06.jpg" alt="Tela 2 do carrossel" loading="lazy"></div><div class="slide"><img src="img/leds-car-07.jpg" alt="Tela 3 do carrossel" loading="lazy"></div><div class="slide"><img src="img/leds-car-08.jpg" alt="Tela 4 do carrossel" loading="lazy"></div><div class="slide"><img src="img/leds-car-09.jpg" alt="Tela 5 do carrossel" loading="lazy"></div><div class="slide"><img src="img/leds-car-10.jpg" alt="Tela 6 do carrossel" loading="lazy"></div><div class="slide"><img src="img/leds-car-11.jpg" alt="Tela 7 do carrossel" loading="lazy"></div></div>
+      <button type="button" class="nav prev" aria-label="Tela anterior"><span>‹</span></button>
+      <button type="button" class="nav next" aria-label="Próxima tela"><span>›</span></button>
+      <span class="counter">1/7</span>
+    </div>
+    <div class="dots"><button type="button" aria-label="Ir para tela 1" class=on></button><button type="button" aria-label="Ir para tela 2"></button><button type="button" aria-label="Ir para tela 3"></button><button type="button" aria-label="Ir para tela 4"></button><button type="button" aria-label="Ir para tela 5"></button><button type="button" aria-label="Ir para tela 6"></button><button type="button" aria-label="Ir para tela 7"></button></div><p class="hint">Arraste ou use as setas para ver as 7 telas</p></div>
+  <div class="info">
+    <div class="chips"><span class="chip fmt">Carrossel · 7 telas</span><span class="chip">Pasta 04</span><span class="chip warn">Aguardando programação</span></div>
+    <h3>Carrossel Confort</h3>
+    <div class="objective"><p class="label">Objetivo</p><p>Explicar o porquê do nome Confort: termofusão, tecnologia seamless e corte a laser a serviço de diferentes corpos.</p></div>
+    <div class="leg"><div class="leg-head"><p class="label">Legenda</p><span class="badge-new">✎ Nova · para aprovação</span></div>
+      <p class="caption">Por que a linha Confort leva esse nome? 🤍
+
+Menos costuras, mais conforto ao vestir. Termofusão, tecnologia seamless e corte a laser para peças que somem sob a roupa e acompanham diferentes necessidades.
+
+Arraste para conhecer cada detalhe e venha provar na loja LED&#x27;S mais perto de você.
+
+O extraordinário está nos detalhes.
+
+#LEDSÍntima #LinhaConfort #ConfortPremium</p><button type="button" class="copy" data-copy>Copiar legenda</button></div>
+    <div class="links"><a class="link" href="https://drive.google.com/drive/folders/1iO3Sitn0MKcVK47f7SSV5ku5Ka3NdAMB" target="_blank" rel="noopener">Abrir telas no Drive ↗</a><a class="link dim" href="https://drive.google.com/drive/folders/1IAcDFGSNrsi-d2GQ0Yo5SEmbq2Iq8f0K" target="_blank" rel="noopener">Pasta 04 ↗</a></div>
+  </div>
+</article><article class="card pending" id="p-spoiler2">
+  <div class="card-top"><div><span class="date">A definir</span><small>data e horário pendentes</small></div><span class="num">04</span></div>
+  <div class="media"><div class="frame reel"><video controls playsinline preload="none" poster="img/leds-spoiler2.jpg" aria-label="Vídeo Spoiler Doce Verão 2"><source src="vid/leds-spoiler2.mp4" type="video/mp4">Seu navegador não reproduz este vídeo.</video></div></div>
+  <div class="info">
+    <div class="chips"><span class="chip fmt">Reels</span><span class="chip">Pasta 04</span><span class="chip warn">Aguardando programação</span></div>
+    <h3>Spoiler Doce Verão 2</h3>
+    <div class="objective"><p class="label">Objetivo</p><p>Segundo teaser da campanha: o olhar de quem fotografou o Doce Verão, aumentando a curiosidade para o lançamento.</p></div>
+    <div class="leg"><div class="leg-head"><p class="label">Legenda</p><span class="badge-new">✎ Nova · para aprovação</span></div>
+      <p class="caption">Quem disse que o verão precisa ter gosto de sal?
+
+Estamos preparando algo com a nossa paisagem, a nossa luz e o nosso jeito de viver a estação.
+
+Doce Verão · está chegando.
+
+#LEDSÍntima #DoceVerão #Bastidores</p><button type="button" class="copy" data-copy>Copiar legenda</button></div>
+    <div class="links"><a class="link" href="https://drive.google.com/file/d/11ALqh6vGmAsgQ0asCm4qdVy3nauOaNjf/view" target="_blank" rel="noopener">Abrir vídeo no Drive ↗</a><a class="link dim" href="https://drive.google.com/drive/folders/1tctTHvMLLF9rFr5RpnrFOLndinWf3CCZ" target="_blank" rel="noopener">Pasta 04 ↗</a></div>
+  </div>
+</article><article class="card pending" id="p-confortvideo">
+  <div class="card-top"><div><span class="date">A definir</span><small>data e horário pendentes</small></div><span class="num">06</span></div>
+  <div class="media"><div class="frame reel"><video controls playsinline preload="none" poster="img/leds-confortvideo.jpg" aria-label="Vídeo Confort em vídeo"><source src="vid/leds-confortvideo.mp4" type="video/mp4">Seu navegador não reproduz este vídeo.</video></div></div>
+  <div class="info">
+    <div class="chips"><span class="chip fmt">Reels</span><span class="chip">Pasta 06</span><span class="chip warn">Aguardando programação</span></div>
+    <h3>Confort em vídeo</h3>
+    <div class="objective"><p class="label">Objetivo</p><p>Mostrar a linha Confort Premium em movimento, reforçando o caimento e a liberdade das peças sem costura.</p></div>
+    <div class="leg"><div class="leg-head"><p class="label">Legenda</p><span class="badge-new">✎ Nova · para aprovação</span></div>
+      <p class="caption">Confort Premium em movimento. ✨
+
+Peças sem costura que acompanham cada passo, com sustentação, toque macio e zero marcação.
+
+Conforto que você sente. E que ninguém vê.
+
+#LEDSÍntima #ConfortPremium #SemCostura</p><button type="button" class="copy" data-copy>Copiar legenda</button></div>
+    <div class="links"><a class="link" href="https://drive.google.com/file/d/1-ytJA9XFtsZjry-bp4scbhIzBZVu95qn/view" target="_blank" rel="noopener">Abrir vídeo no Drive ↗</a><a class="link dim" href="https://drive.google.com/drive/folders/1ty98s2HzXhVDx2WHuQwHsz7K9hDCu8EO" target="_blank" rel="noopener">Pasta 06 ↗</a></div>
+  </div>
+</article><article class="card pending" id="p-bastidores">
+  <div class="card-top"><div><span class="date">A definir</span><small>data e horário pendentes</small></div><span class="num">06</span></div>
+  <div class="media"><div class="frame reel"><video controls playsinline preload="none" poster="img/leds-bastidores.jpg" aria-label="Vídeo Reels bastidores"><source src="vid/leds-bastidores.mp4" type="video/mp4">Seu navegador não reproduz este vídeo.</video></div></div>
+  <div class="info">
+    <div class="chips"><span class="chip fmt">Reels</span><span class="chip">Pasta 06</span><span class="chip warn">Aguardando programação</span></div>
+    <h3>Reels bastidores</h3>
+    <div class="objective"><p class="label">Objetivo</p><p>Aproximar o público da marca mostrando como os conteúdos da LED&#x27;S são feitos, de perto e de verdade.</p></div>
+    <div class="leg"><div class="leg-head"><p class="label">Legenda</p><span class="badge-new">✎ Nova · para aprovação</span></div>
+      <p class="caption">Do outro lado da câmera também tem muita história. 🎬
+
+Um pouco dos bastidores de como a LED&#x27;S ganha vida: cada luz, cada cena e cada detalhe pensado para você.
+
+#LEDSÍntima #Bastidores #MakingOf</p><button type="button" class="copy" data-copy>Copiar legenda</button></div>
+    <div class="links"><a class="link" href="https://drive.google.com/file/d/1lgIWkaAm1NoRBs4Nrs3mDvfZJl2hXmZq/view" target="_blank" rel="noopener">Abrir vídeo no Drive ↗</a><a class="link dim" href="https://drive.google.com/drive/folders/1mt4AHoXxScIFGvnCoG8vX02PMRk6E5Db" target="_blank" rel="noopener">Pasta 06 ↗</a></div>
+  </div>
+</article>
+  </section>
+  <section class="goal">
+    <div class="sec-head"><p class="sec-eyebrow">Já estão</p><h2 class="sec-title">No ar</h2><div class="sec-line"></div>
+      <p class="sec-desc">Conteúdos publicados no Instagram.</p><span class="sec-count">2 conteúdos</span></div>
+    <article class="card" id="p-manifesto">
+  <div class="card-top"><div><span class="date">18/11</span><small>quarta · publicado</small></div><span class="num">01</span></div>
+  <div class="media"><div class="frame reel"><video controls playsinline preload="none" poster="img/leds-manifesto.jpg" aria-label="Vídeo Manifesto"><source src="vid/leds-manifesto.mp4" type="video/mp4">Seu navegador não reproduz este vídeo.</video></div></div>
+  <div class="info">
+    <div class="chips"><span class="chip fmt">Reels</span><span class="chip">Pasta 01</span><span class="chip ok">✓ No ar</span></div>
+    <h3>Manifesto</h3>
+    <div class="objective"><p class="label">Objetivo</p><p>Abrir a nova fase da LED&#x27;S com o filme-manifesto, que apresenta a voz e o olhar da marca.</p></div>
+    <div class="posted"><p class="label">Legenda</p><p>Já publicado no perfil. A legenda é a que está no ar.</p></div>
+    <div class="links"><a class="link" href="https://drive.google.com/file/d/1ar-yvgrO7AbBj6jA74sB36Ge7uYwF8n6/view" target="_blank" rel="noopener">Abrir vídeo no Drive ↗</a><a class="link dim" href="https://drive.google.com/drive/folders/1Iv3p0OZuodczKl_0Zm_zAGNtR1ZaC_p3" target="_blank" rel="noopener">Pasta 01 ↗</a></div>
+  </div>
+</article><article class="card" id="p-consciencia">
+  <div class="card-top"><div><span class="date">20/11</span><small>sexta · publicado</small></div><span class="num">05</span></div>
+  <div class="media"><div class="frame reel"><video controls playsinline preload="none" poster="img/leds-consciencia.jpg" aria-label="Vídeo Consciência Negra"><source src="vid/leds-consciencia.mp4" type="video/mp4">Seu navegador não reproduz este vídeo.</video></div></div>
+  <div class="info">
+    <div class="chips"><span class="chip fmt">Reels</span><span class="chip">Pasta 05</span><span class="chip ok">✓ No ar</span></div>
+    <h3>Consciência Negra</h3>
+    <div class="objective"><p class="label">Objetivo</p><p>Marcar o Dia da Consciência Negra com respeito e representatividade, celebrando a mulher negra.</p></div>
+    <div class="posted"><p class="label">Legenda</p><p>Já publicado no perfil. A legenda é a que está no ar.</p></div>
+    <div class="links"><a class="link" href="https://drive.google.com/file/d/1vIUco_TVK6EYwqCIRU28drn2lGE-hCEv/view" target="_blank" rel="noopener">Abrir vídeo no Drive ↗</a><a class="link dim" href="https://drive.google.com/drive/folders/1rjqOBzdBRAQasOLS2ofmr1qa4ST-yk4U" target="_blank" rel="noopener">Pasta 05 ↗</a></div>
+  </div>
+</article>
+  </section>
+
+</main>
+
+<footer>
+  <svg class="logo" role="img" aria-label="LED'S Íntima" xmlns="http://www.w3.org/2000/svg" viewBox="408 275 1075 542" fill="currentColor"><path d="M 1301.5 289.9 C 1289.8 289.9 1280.3 299.4 1280.3 311.0 C 1280.3 322.7 1289.8 332.2 1301.5 332.2 C 1313.1 332.2 1322.6 322.7 1322.6 311.0 C 1322.6 299.4 1313.1 289.9 1301.5 289.9 M 1301.5 337.0 C 1287.1 337.0 1275.5 325.4 1275.5 311.0 C 1275.5 296.7 1287.1 285.0 1301.5 285.0 C 1315.8 285.0 1327.5 296.7 1327.5 311.0 C 1327.5 325.4 1315.8 337.0 1301.5 337.0 "/><path d="M 1231.9 417.5 L 1240.1 406.7 L 1250.4 341.6 C 1251.3 333.3 1251.0 327.0 1249.3 322.9 C 1247.6 317.7 1243.7 315.1 1237.6 315.2 C 1232.1 315.1 1228.1 318.0 1225.8 324.2 C 1224.2 329.2 1223.8 335.4 1224.7 342.9 Z M 1231.9 417.5 "/><path d="M 418.7 643.6 C 432.5 643.6 442.2 641.5 447.8 637.5 C 452.8 633.7 455.3 627.7 455.3 619.3 L 455.3 408.3 C 455.3 398.7 452.8 392.3 447.8 389.0 C 442.5 385.5 432.8 383.7 418.7 383.7 L 418.7 374.3 L 519.6 374.3 L 519.6 383.7 C 503.5 383.7 492.7 385.5 487.1 389.0 C 482.3 392.3 479.9 398.7 479.9 408.3 L 479.9 619.3 C 479.9 627.7 482 633.7 486.0 637.5 C 490.3 641.5 497.7 643.6 508.3 643.6 L 548.4 643.6 C 566.5 643.6 583.6 638.0 599.5 626.9 C 615.1 616.3 628.3 601.4 639.2 582.3 L 646.7 586.1 L 618.4 653.4 L 418.7 653.4 Z M 418.7 643.6 "/><path d="M 684.6 642.8 C 696.4 642.8 705.0 640.7 710.3 636.4 C 715.8 632.3 718.6 625.7 718.6 616.3 L 718.6 408.7 C 718.6 399.8 715.8 393.4 710.3 389.4 C 705.0 385.6 696.4 383.7 684.6 383.7 L 684.6 374.3 L 885.0 374.3 L 912.3 440.4 L 906.6 444.2 L 896.7 431.4 C 885.4 416.0 875.4 405.3 866.9 399.2 C 852.0 388.9 833.6 383.7 811.6 383.7 L 773.4 383.7 C 763.1 383.7 755.5 385.6 750.7 389.4 C 745.7 393.4 743.2 399.8 743.2 408.7 L 743.2 502.1 L 801.8 502.1 C 815.9 502.1 826.3 498.6 832.8 491.5 C 840.1 483.9 843.8 471.3 843.8 453.7 L 852.9 453.7 L 852.9 562.2 L 843.8 562.2 C 843.8 545.3 840.1 532.9 832.8 524.8 C 825.8 517.0 815.4 513.1 801.8 513.1 L 743.2 513.1 L 743.2 616.3 C 743.2 625.4 745.7 632.1 750.7 636.4 C 755.8 640.7 763.6 642.8 774.2 642.8 L 810.1 642.8 C 832.3 642.8 851.4 638.0 867.2 628.4 C 882.4 619.1 897.9 603.3 913.8 581.1 L 920.6 584.9 L 894.5 652.6 L 684.6 652.6 Z M 684.6 642.8 "/><path d="M 958.4 642.8 C 970.5 642.8 979.2 640.7 984.5 636.4 C 989.8 632.1 992.4 624.8 992.4 614.4 L 992.4 409.8 C 992.4 400.7 989.8 394.0 984.5 389.8 C 978.9 385.7 970.2 383.7 958.4 383.7 L 958.4 374.3 L 1070.7 374.3 C 1114.9 374.3 1148.9 388.6 1172.8 417.4 C 1194.0 442.8 1204.6 474.7 1204.6 513.1 C 1204.6 551.6 1194.0 583.7 1172.8 609.1 C 1148.9 638.1 1114.9 652.6 1070.7 652.6 L 958.4 652.6 Z M 1024.2 636.4 C 1029.0 640.7 1036.9 642.8 1048.0 642.8 L 1070.7 642.8 C 1104.5 642.8 1131.4 629.3 1151.3 602.3 C 1169.4 578.1 1178.5 548.4 1178.5 513.1 C 1178.5 478.3 1169.4 448.6 1151.3 424.2 C 1131.4 397.2 1104.5 383.7 1070.7 383.7 L 1048.0 383.7 C 1037.2 383.7 1029.2 385.7 1024.2 389.8 C 1019.4 394.0 1017.0 400.7 1017.0 409.8 L 1017.0 614.4 C 1017.0 624.8 1019.4 632.1 1024.2 636.4 "/><path d="M 441.5 749.0 L 441.5 751.1 C 438.1 751.1 435.8 751.5 434.5 752.3 C 433.3 753.0 432.6 754.5 432.6 756.6 L 432.6 799.0 C 432.6 800.7 433.3 802.0 434.5 802.8 C 435.9 803.6 438.2 804.0 441.5 804.0 L 441.5 806.1 L 418.7 806.1 L 418.7 804.0 C 421.8 804.0 424.1 803.6 425.5 802.8 C 426.7 802.0 427.4 800.7 427.4 799.0 L 427.4 756.6 C 427.4 754.5 426.7 753.0 425.5 752.3 C 424.2 751.5 422 751.1 418.7 751.1 L 418.7 749.0 Z M 431.7 737.3 C 432.3 735.9 433.2 735.0 434.4 734.7 C 435.5 734.3 436.3 734.5 436.9 735.4 C 437.6 736.4 437.7 737.4 437.4 738.2 C 437.2 738.7 436.6 739.5 435.5 740.5 L 428.6 747.2 L 425.9 747.2 Z M 431.7 737.3 "/><path d="M 602.4 803.0 C 605.1 803.0 607.0 802.6 608.1 801.7 C 609.2 800.8 609.8 799.3 609.8 797.3 L 609.8 752.3 C 609.8 750.2 609.2 748.7 608.1 747.8 C 606.9 746.9 605.0 746.5 602.4 746.5 L 602.4 744.4 L 613.2 744.4 L 651.6 795.2 L 651.6 751.2 C 651.6 749.5 651.0 748.3 649.8 747.6 C 648.6 746.9 646.7 746.5 644.1 746.5 L 644.1 744.4 L 661.6 744.4 L 661.6 746.5 C 659.0 746.5 657.1 746.9 655.9 747.7 C 654.7 748.4 654.1 749.6 654.1 751.2 L 654.1 805.4 L 652.7 805.4 L 612.4 751.8 L 612.4 797.3 C 612.4 799.4 612.9 800.9 613.9 801.7 C 615.0 802.6 617.0 803.0 619.8 803.0 L 619.8 805.2 L 602.4 805.2 Z M 602.4 803.0 "/><path d="M 821.7 802.1 C 824.8 802.1 827.0 801.8 828.4 801.3 C 830.3 800.6 831.2 799.3 831.2 797.5 L 831.2 750.2 C 831.2 748.4 830.7 747.2 829.7 746.5 C 828.6 745.8 826.8 745.5 824.2 745.5 C 819.3 745.5 815.2 746.8 812.0 749.4 C 809.9 751.1 807.7 753.9 805.2 757.8 L 804.0 757.2 L 808.9 743.3 L 858.9 743.3 L 863.8 757.8 L 862.4 758.3 L 861.5 756.9 C 859.2 753.0 857.2 750.3 855.5 748.8 C 852.8 746.6 849.3 745.5 845.0 745.5 C 842.0 745.5 839.8 745.8 838.5 746.5 C 837.1 747.3 836.4 748.5 836.4 750.2 L 836.4 797.5 C 836.4 799.4 837.2 800.7 838.8 801.3 C 840.1 801.8 842.5 802.1 846.0 802.1 L 846.0 804.2 L 821.7 804.2 Z M 821.7 802.1 "/><path d="M 1046.2 741.1 L 1046.2 743.2 C 1043.3 743.2 1041.3 743.5 1040.2 744.3 C 1039.0 745.1 1038.4 746.6 1038.4 748.8 L 1038.4 794.8 C 1038.4 796.5 1039.0 797.8 1040.2 798.5 C 1041.4 799.3 1043.4 799.7 1046.2 799.7 L 1046.2 801.8 L 1025.4 801.8 L 1025.4 799.7 C 1028.2 799.7 1030.2 799.3 1031.4 798.5 C 1032.6 797.8 1033.2 796.5 1033.2 794.8 L 1033.2 748.8 C 1033.2 746.6 1032.6 745.1 1031.4 744.3 C 1030.2 743.5 1028.2 743.2 1025.4 743.2 L 1025.4 741.1 Z M 1046.2 741.1 "/><path d="M 1203.5 804.0 C 1206.1 804.0 1208.0 803.6 1209.1 802.7 C 1210.1 801.8 1210.6 800.3 1210.6 798.3 L 1210.6 752.2 C 1210.6 750.5 1210.1 749.3 1209.0 748.6 C 1207.9 747.8 1206.0 747.5 1203.5 747.5 L 1203.5 745.4 L 1217.8 745.4 L 1237.6 798.3 L 1257.3 745.4 L 1272.1 745.4 L 1272.1 747.5 C 1269.2 747.5 1267.3 747.8 1266.2 748.6 C 1265.4 749.3 1264.9 750.5 1264.9 752.2 L 1264.9 798.3 C 1264.9 800.2 1265.4 801.6 1266.4 802.5 C 1267.6 803.5 1269.4 804.0 1272.1 804.0 L 1272.1 806.1 L 1251.6 806.1 L 1251.6 804.0 C 1254.5 804.0 1256.7 803.5 1257.9 802.5 C 1259.1 801.7 1259.6 800.2 1259.6 798.3 L 1259.6 748.3 L 1258.7 748.3 L 1236.9 806.7 L 1235.5 806.7 L 1214.0 749.5 L 1213.0 749.5 L 1213.0 798.3 C 1213.0 800.3 1213.5 801.8 1214.6 802.7 C 1215.8 803.6 1217.9 804.0 1221.1 804.0 L 1221.1 806.1 L 1203.5 806.1 Z M 1203.5 804.0 "/><path d="M 1461.4 795.5 C 1462.1 797.8 1463.2 799.3 1464.5 800.2 C 1465.7 801.1 1467.5 801.5 1469.9 801.5 L 1469.9 803.7 L 1448.5 803.7 L 1448.5 801.5 C 1452.1 801.5 1454.5 801.2 1455.5 800.5 C 1456.7 799.6 1456.9 798.1 1456.1 795.9 L 1450.6 781.5 L 1425.2 781.5 L 1420.7 793.9 C 1419.6 797.0 1419.6 799.0 1420.7 800.1 C 1421.7 801.0 1424.1 801.5 1427.8 801.5 L 1427.8 803.7 L 1409.5 803.7 L 1409.5 801.5 C 1411.9 801.5 1413.6 801.0 1414.7 800.1 C 1415.8 799.0 1417.1 796.6 1418.4 792.9 L 1436.0 743.5 L 1440.7 741.6 Z M 1426.0 779.1 L 1449.6 779.1 L 1437.6 747.2 Z M 1426.0 779.1 "/><path d="M 1317.1 629.6 C 1336.5 644.2 1358.3 651.6 1382.6 651.6 C 1403.4 651.6 1419.5 647.1 1430.9 638.2 C 1444.1 628.0 1450.6 612.5 1450.6 591.7 C 1450.6 573.6 1444.3 559.8 1431.7 550.4 C 1421.0 542.4 1400.1 534.0 1368.8 525.1 C 1342.0 516.9 1321.9 507.8 1308.6 497.9 C 1290.0 483.8 1280.7 465.7 1280.7 443.6 C 1280.7 425.0 1286.5 409.5 1298.1 397.1 C 1312.8 382.0 1334.2 374.4 1362.5 374.4 C 1369.9 374.4 1377.4 375.2 1384.8 376.7 C 1389.0 377.6 1394.6 379.3 1401.5 381.5 C 1406.8 383.0 1410.4 384.0 1412.3 384.5 C 1415.6 385.0 1418.3 384.8 1420.5 384.1 L 1439.1 376.7 L 1464.0 445.8 L 1458.1 449.6 C 1445.9 429.0 1432.4 413.4 1417.5 402.7 C 1400.4 390.3 1381.5 384.1 1360.6 384.1 C 1343.5 384.1 1329.8 388.1 1319.3 396.0 C 1307.4 405.2 1301.5 418.9 1301.5 437.3 C 1301.5 455.4 1309.3 470.0 1324.9 481.2 C 1336.3 489.4 1354.3 497.1 1378.9 504.2 C 1409.1 512.2 1431.1 521.1 1444.7 531.0 C 1463.0 544.2 1472.2 561.9 1472.2 584.2 C 1472.2 609.8 1463.5 629.2 1446.2 642.6 C 1430.8 654.8 1410.1 660.8 1384.1 660.8 C 1376.4 660.8 1368.1 659.9 1359.1 657.9 C 1354.2 656.6 1347.5 654.8 1339.1 652.3 C 1334.8 651.1 1331.9 650.2 1330.1 649.7 C 1327.4 649.2 1325.4 648.9 1324.2 648.9 C 1320.0 648.9 1315.2 650.1 1310.0 652.3 C 1305.1 654.3 1300.5 656.9 1296.3 660.1 L 1269.5 587.9 L 1277.3 584.2 C 1289.7 603.8 1303.0 618.9 1317.1 629.6 "/><path d="M 1302.6 311.2 C 1305.7 311.2 1307.7 309.6 1307.7 307.0 L 1307.7 307.0 C 1307.7 304.3 1305.8 302.8 1302.5 302.8 L 1296.1 302.8 L 1296.1 311.2 Z M 1291.7 298.8 L 1302.9 298.8 C 1306.1 298.8 1308.5 299.7 1310.1 301.3 C 1311.5 302.7 1312.2 304.5 1312.2 306.7 L 1312.2 306.8 C 1312.2 310.9 1309.8 313.4 1306.2 314.4 L 1313.0 323.9 L 1307.8 323.9 L 1301.6 315.2 L 1296.1 315.2 L 1296.1 323.9 L 1291.7 323.9 Z M 1291.7 298.8 "/></svg>
+  <p>Conteúdos da pasta <a href="https://drive.google.com/drive/folders/1avmzbcx8BFuw-lu9a1Esa0Fzw7uGJc7H" target="_blank" rel="noopener">07. Conteúdo · Geral</a> no Drive LEDS</p>
+</footer>
+<div class="toast" role="status" aria-live="polite"></div>
+<script>(function(){
+  var toast=document.querySelector('.toast'),tt;
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},1800)}
+
+  // Carrossel nativo com setas, pontos e teclado
+  document.querySelectorAll('[data-car]').forEach(function(car){
+    var track=car.querySelector('.track'),slides=track.children,n=slides.length;
+    var prev=car.querySelector('.prev'),next=car.querySelector('.next'),cnt=car.querySelector('.counter');
+    var dots=car.nextElementSibling.querySelectorAll('button');
+    function idx(){return Math.round(track.scrollLeft/Math.max(1,track.clientWidth))}
+    function go(i){i=Math.max(0,Math.min(n-1,i));track.scrollTo({left:i*track.clientWidth,behavior:'smooth'})}
+    function upd(){var i=idx();cnt.textContent=(i+1)+'/'+n;prev.disabled=i<=0;next.disabled=i>=n-1;dots.forEach(function(d,k){d.classList.toggle('on',k===i)})}
+    prev.addEventListener('click',function(){go(idx()-1)});
+    next.addEventListener('click',function(){go(idx()+1)});
+    dots.forEach(function(d,k){d.addEventListener('click',function(){go(k)})});
+    track.addEventListener('scroll',function(){window.requestAnimationFrame(upd)},{passive:true});
+    track.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(idx()+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(idx()-1)}});
+    upd();
+  });
+
+  // Um vídeo por vez
+  var vids=document.querySelectorAll('video');
+  vids.forEach(function(v){v.addEventListener('play',function(){vids.forEach(function(o){if(o!==v)o.pause()})})});
+
+  // Copiar legenda
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.parentElement.querySelector('.caption').textContent;
+      try{navigator.clipboard.writeText(t).then(function(){say('Legenda copiada')},function(){say('Não foi possível copiar: selecione o texto')})}
+      catch(e){say('Não foi possível copiar: selecione o texto')}
+    });
+  });
+
+  // Prévia do feed leva ao cartão
+  document.querySelectorAll('.ig-tile').forEach(function(t){
+    t.addEventListener('click',function(){var el=document.getElementById(t.dataset.go);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})});
+  });
+})();
+</script>
+</body>
+</html>
